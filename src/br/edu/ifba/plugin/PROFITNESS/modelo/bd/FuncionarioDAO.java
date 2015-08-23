@@ -15,8 +15,8 @@ public class FuncionarioDAO {
 		
 		Funcionario u1 = new Funcionario();
 		u1.setId(1);
-		u1.setCpf("123-4");
-		u1.setRg("321-1");
+		u1.setCpf("1234");
+		u1.setRg("1234");
 		u1.setCargo("Gerente");
 		u1.setNome("Igo Romero");
 		u1.setLogin("igo");

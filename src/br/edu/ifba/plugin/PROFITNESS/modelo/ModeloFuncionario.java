@@ -49,6 +49,7 @@ public class ModeloFuncionario {
 				} else{
 					criterio = pesquisaFuncionario.getCargo();
 					if(!criterio.equals("")){
+						System.out.print(" cargo "+ criterio);
 						funcionarios = FuncionarioDAO.getFuncionarioPorCargo(criterio);
 					}
 				}

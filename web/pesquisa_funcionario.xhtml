@@ -51,21 +51,24 @@
 							<div class="medium-6 large-6 columns">
 								<label>Nome:<br /> <h:inputText name="nome"
 										value="#{pfuncionario.nome}"
-										placeholder="Informe nome ou parte de um nome" />
+										placeholder="Informe nome" />
 								</label>
 							</div>
 						</div>
 						
-						
 						<div class="medium-6 large-6 columns">
 							<label>Cargo:</label>
-								<h:selectOneMenu id="cargo" name="cargo" value="#{cfuncionario.funcionario.cargo}">
+								<h:selectOneMenu id="cargo" name="cargo" value="#{pfuncionario.cargo}">
 									<f:selectItem itemValue="" itemLabel="Informe o Cargo" noSelectionOption="true" />	 
 									<f:selectItem itemValue="Gerente" itemLabel="Gerente" />
 									<f:selectItem itemValue="Professor" itemLabel="Professor" />
 								</h:selectOneMenu>
 							<h:message class="error" for="cargo" />
 						</div>
+						
+	
+						
+						
 
 						<div class="row">
 							<div class="medium-6 large-6 columns">
