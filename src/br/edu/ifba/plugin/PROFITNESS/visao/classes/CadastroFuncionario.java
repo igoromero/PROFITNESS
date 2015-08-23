@@ -1,4 +1,4 @@
-package br.edu.ifba.plugin.PROFITNESS.visao.impl;
+package br.edu.ifba.plugin.PROFITNESS.visao.classes;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -6,14 +6,14 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-import br.edu.ifba.plugin.PROFITNESS.controle.ControleUsuario;
-import br.edu.ifba.plugin.PROFITNESS.modelo.ModeloUsuario;
-import br.edu.ifba.plugin.PROFITNESS.modelo.bd.estatico.Usuario;
-import br.edu.ifba.plugin.PROFITNESS.visao.ICadastroUsuario;
+import br.edu.ifba.plugin.PROFITNESS.controle.ControleFuncionario;
+import br.edu.ifba.plugin.PROFITNESS.modelo.ModeloFuncionario;
+import br.edu.ifba.plugin.PROFITNESS.modelo.bd.Funcionario;
+import br.edu.ifba.plugin.PROFITNESS.visao.ICadastroFuncionario;
 
-@ManagedBean(name = "cadusuario")
+@ManagedBean(name = "cfuncionario")
 @ViewScoped
-public class CadastroUsuario implements ICadastroUsuario {
+public class CadastroFuncionario implements ICadastroFuncionario {
 	private static final String ERRO_CPF_JA_CADASTRADO= "Cpf já cadastrado";
 	private static final String ERRO_CPF_NAO_INFORMADO = "Cpf deve ser Informado";
 	private static final String ERRO_RG_NAO_INFORMADO = "RG deve ser Informado";
@@ -31,24 +31,24 @@ public class CadastroUsuario implements ICadastroUsuario {
 	public boolean gravado = false;
 
 	private String id = "";
-	private Usuario usuario = new Usuario();
+	private Funcionario funcionario = new Funcionario();
 
-	public CadastroUsuario() {
+	public CadastroFuncionario() {
 		ExternalContext contexto = FacesContext.getCurrentInstance()
 				.getExternalContext();
-		id = (String) contexto.getSessionMap().get("idUsuario");
+		id = (String) contexto.getSessionMap().get("idFuncionario");
 
 		if ((id != null) && (!id.isEmpty())) {
-			recuperarUsuario();
+			recuperarFuncionario();
 		}
 	}
 
-	private void recuperarUsuario() {
-		ModeloUsuario modelo = new ModeloUsuario();
-		ControleUsuario controle = new ControleUsuario();
+	private void recuperarFuncionario() {
+		ModeloFuncionario modelo = new ModeloFuncionario();
+		ControleFuncionario controle = new ControleFuncionario();
 
-		controle.setCadastroUsuario(this);
-		controle.setModeloUsuario(modelo);
+		controle.setCadastroFuncionario(this);
+		controle.setModeloFuncionario(modelo);
 
 		controle.pesquisarParaCadastro();
 	}
@@ -65,71 +65,71 @@ public class CadastroUsuario implements ICadastroUsuario {
 	}
 
 	@Override
-	public Usuario getUsuario() {
-		return usuario;
+	public Funcionario getFuncionario() {
+		return funcionario;
 	}
 
 	@Override
-	public void atualizarUsuarioEncontrado(Usuario usuario) {
-		this.usuario = usuario;
+	public void atualizarFuncionarioEncontrado(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 	public void gravar() {
 		gravado = false;
 		gravar = true;	
 		
-		if ((usuario.getCpf() == null) || (usuario.getCpf().isEmpty())){
+		if ((funcionario.getCpf() == null) || (funcionario.getCpf().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:cpf",new FacesMessage(ERRO_CPF_NAO_INFORMADO,ERRO_CPF_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getRg() == null) || (usuario.getRg().isEmpty())){
+		if((funcionario.getRg() == null) || (funcionario.getRg().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:rg", new FacesMessage(ERRO_RG_NAO_INFORMADO, ERRO_RG_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getNome() == null) || (usuario.getNome().isEmpty())){
+		if((funcionario.getNome() == null) || (funcionario.getNome().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:nome", new FacesMessage(ERRO_Nome_NAO_INFORMADO, ERRO_Nome_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getSexo() == null) || (usuario.getSexo().isEmpty())){
+		if((funcionario.getSexo() == null) || (funcionario.getSexo().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:sexo", new FacesMessage(ERRO_SEXO_NAO_INFORMADO, ERRO_SEXO_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getCargo() == null) || (usuario.getCargo().isEmpty())){
+		if((funcionario.getCargo() == null) || (funcionario.getCargo().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:cargo", new FacesMessage(ERRO_CARGO_NAO_INFORMADO, ERRO_CARGO_NAO_INFORMADO));
 			gravar = false;
 		}
 		
-		if((usuario.getTel() == null || (usuario.getTel().isEmpty()))){
+		if((funcionario.getTel() == null || (funcionario.getTel().isEmpty()))){
 			FacesContext.getCurrentInstance().addMessage("form:telefone", new FacesMessage(ERRO_TEL_NAO_INFORMADO, ERRO_TEL_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getDataNascimento() == null)){
+		if((funcionario.getDataNascimento() == null)){
 			FacesContext.getCurrentInstance().addMessage("form:dataNascimento", new FacesMessage(ERRO_DATA_NAO_INFORMADO, ERRO_DATA_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getLogin() == null) || (usuario.getLogin().isEmpty())){
+		if((funcionario.getLogin() == null) || (funcionario.getLogin().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:login", new FacesMessage(ERRO_LOGIN_NAO_INFORMADO, ERRO_LOGIN_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getSenha() == null) || (usuario.getSenha().isEmpty())){
+		if((funcionario.getSenha() == null) || (funcionario.getSenha().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:senha", new FacesMessage(ERRO_SENHA_NAO_INFORMADO, ERRO_SENHA_NAO_INFORMADO));
 			gravar = false;
 		}
-		if((usuario.getSenha2() == null) || (usuario.getSenha2().isEmpty())){
+		if((funcionario.getSenha2() == null) || (funcionario.getSenha2().isEmpty())){
 			FacesContext.getCurrentInstance().addMessage("form:senha2", new FacesMessage(ERRO_SENHA_NAO_INFORMADO, ERRO_SENHA_NAO_INFORMADO));
 			gravar = false;
 		}
-		if(!(usuario.getSenha().equals(usuario.getSenha2()))){
+		if(!(funcionario.getSenha().equals(funcionario.getSenha2()))){
 			FacesContext.getCurrentInstance().addMessage("form:senha2", new FacesMessage(ERRO_SENHA_NAO_CONFERE, ERRO_SENHA_NAO_CONFERE));
 			gravar = false;
 		}
-		if((usuario.getSenha().length() < 6) || (usuario.getSenha2().length() < 6)){
+		if((funcionario.getSenha().length() < 6) || (funcionario.getSenha2().length() < 6)){
 			FacesContext.getCurrentInstance().addMessage("form:senha2", new FacesMessage(ERRO_SENHA_CURTA, ERRO_SENHA_CURTA));
 			gravar = false;
 		}
 		
 		if(gravar)
-			gravarUsuario();					
+			gravarFuncionario();				
 	
 	}
 	
@@ -137,23 +137,23 @@ public class CadastroUsuario implements ICadastroUsuario {
 	
 	
 
-	private void gravarUsuario() {
-		ModeloUsuario modelo = new ModeloUsuario();
-		ControleUsuario controle = new ControleUsuario();
+	private void gravarFuncionario() {
+		ModeloFuncionario modelo = new ModeloFuncionario();
+		ControleFuncionario controle = new ControleFuncionario();
 
-		controle.setCadastroUsuario(this);
-		controle.setModeloUsuario(modelo);
+		controle.setCadastroFuncionario(this);
+		controle.setModeloFuncionario(modelo);
 
 		controle.gravar();
 	}
 
 	@Override
-	public void notificarUsuarioNaoEncontrado() {
+	public void notificarFuncionarioNaoEncontrado() {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void notificarUsuarioGravado(Usuario usuario) {
+	public void notificarFuncionarioGravado(Funcionario funcionario) {
 		gravado = true;
 	}
 

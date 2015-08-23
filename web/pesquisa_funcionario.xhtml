@@ -36,21 +36,21 @@
 						<div class="row">
 							<div class="medium-4 large-4 columns">
 								<label>CPF:<br /> <h:inputText name="cpf"
-										value="#{pusuario.cpf}" placeholder="Informe CPF" />
+										value="#{pfuncionario.cpf}" placeholder="Informe CPF" />
 								</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="medium-4 large-4 columns">
 								<label>RG:<br /> <h:inputText name="rg"
-										value="#{pusuario.rg}" placeholder="Informe RG" />
+										value="#{pfuncionario.rg}" placeholder="Informe RG" />
 								</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="medium-6 large-6 columns">
 								<label>Nome:<br /> <h:inputText name="nome"
-										value="#{pusuario.nome}"
+										value="#{pfuncionario.nome}"
 										placeholder="Informe nome ou parte de um nome" />
 								</label>
 							</div>
@@ -59,7 +59,7 @@
 						
 						<div class="medium-6 large-6 columns">
 							<label>Cargo:</label>
-								<h:selectOneMenu id="cargo" name="cargo" value="#{cadusuario.usuario.cargo}">
+								<h:selectOneMenu id="cargo" name="cargo" value="#{cfuncionario.funcionario.cargo}">
 									<f:selectItem itemValue="" itemLabel="Informe o Cargo" noSelectionOption="true" />	 
 									<f:selectItem itemValue="Gerente" itemLabel="Gerente" />
 									<f:selectItem itemValue="Professor" itemLabel="Professor" />
@@ -70,15 +70,15 @@
 						<div class="row">
 							<div class="medium-6 large-6 columns">
 								<h:commandLink class="button large success radius right"
-									value="Pesquisar" actionListener="#{pusuario.pesquisar()}" />
+									value="Pesquisar" actionListener="#{pfuncionario.pesquisar()}" />
 							</div>
 						</div>
 
 						<div class="row">
-							<h:outputText value="#{pusuario.erro}" class="error"
-								rendered="#{pusuario.erro != null}" />
-							<h:outputText value="#{pusuario.sucesso}" class="success"
-								rendered="#{pusuario.sucesso != null}" />
+							<h:outputText value="#{pfuncionario.erro}" class="error"
+								rendered="#{pfuncionario.erro != null}" />
+							<h:outputText value="#{pfuncionario.sucesso}" class="success"
+								rendered="#{pfuncionario.sucesso != null}" />
 							<br /> <br />
 						</div>
 
@@ -103,7 +103,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													<ui:repeat var="u" value="#{pusuario.usuarios}">
+													<ui:repeat var="u" value="#{pfuncionario.funcionarios}">
 														<tr>
 															<td>#{u.cpf}</td>
 															<td>#{u.rg}</td>
@@ -111,10 +111,10 @@
 															<td>#{u.endereco}</td>
 															<td>#{u.tel}</td>
 															<td><h:commandLink value="Ver detalhes"
-																	actionListener="#{pusuario.ver(u.id)}" /> | <h:commandLink
+																	actionListener="#{pfuncionario.ver(u.id)}" /> | <h:commandLink
 																	onclick="if (!confirm('Deseja excluir este registro?')) return false"
 																	value="Remover"
-																	actionListener="#{pusuario.remover(u.id)}" /></td>
+																	actionListener="#{pfuncionario.remover(u.id)}" /></td>
 														</tr>
 													</ui:repeat>
 												</tbody>
@@ -123,7 +123,7 @@
 									</div>
 									<div class="row">
 										<h:commandLink class="button small radius right"
-											value="Incluir" actionListener="#{pusuario.adicionar()}" />
+											value="Incluir" actionListener="#{pfuncionario.adicionar()}" />
 									</div>
 								</div>
 							</div>

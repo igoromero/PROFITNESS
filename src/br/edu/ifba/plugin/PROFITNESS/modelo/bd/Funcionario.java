@@ -1,9 +1,9 @@
-package br.edu.ifba.plugin.PROFITNESS.modelo.bd.estatico;
+package br.edu.ifba.plugin.PROFITNESS.modelo.bd;
 
 import java.util.Date;
 
 
-public class Usuario {
+public class Funcionario {
 	private int id; //indentificador do usuario 
 	private String rg; 
 	private String cpf;
@@ -139,7 +139,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "ID = " + id + ". NOME = " + nome + " senha "+ senha;
+		return "ID = " + id + ". NOME = " + nome + " senha "+ senha+ " "+cargo;
 	}
 
 }

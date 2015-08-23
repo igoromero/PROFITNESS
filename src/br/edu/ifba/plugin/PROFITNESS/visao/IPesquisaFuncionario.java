@@ -2,9 +2,9 @@ package br.edu.ifba.plugin.PROFITNESS.visao;
 
 import java.util.List;
 
-import br.edu.ifba.plugin.PROFITNESS.modelo.bd.estatico.Usuario;
+import br.edu.ifba.plugin.PROFITNESS.modelo.bd.Funcionario;
 
-public interface IPesquisaUsuario {
+public interface IPesquisaFuncionario {
 
 	public String getId();
 	
@@ -18,11 +18,11 @@ public interface IPesquisaUsuario {
 
 	///////////////////////
 
-	public void atualizarUsuariosEncontrados(List<Usuario> usuarios);
+	public void atualizarFuncionariosEncontrados(List<Funcionario> funcionarios);
 
-	public void notificarUsuariosNaoEncontrados();
+	public void notificarFuncionariosNaoEncontrados();
 	
-	public void notificarUsuarioRemovido();
+	public void notificarFuncionarioRemovido();
 	
 	public void notificarErroRemocao();
 

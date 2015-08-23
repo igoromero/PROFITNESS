@@ -38,13 +38,13 @@
 						
 						<div class="medium-4 large-4 columns">
 								<label>RG:<br /> <h:inputText id="rg" name="rg"
-										value="#{cadusuario.usuario.rg}" placeholder="Informe RG" />
+										value="#{cfuncionario.funcionario.rg}" placeholder="Informe RG" />
 								</label>
 								<h:message class="error" for="rg" />
 							</div>
 							<div class="medium-4 large-4 columns">
 								<label>CPF:<br /> <h:inputText id="cpf" name="cpf"
-										value="#{cadusuario.usuario.cpf}" placeholder="Informe CPF" />
+										value="#{cfuncionario.funcionario.cpf}" placeholder="Informe CPF" />
 								</label>
 								<h:message class="error" for="cpf" />
 							</div>
@@ -54,23 +54,19 @@
 						<div class="row">
 							<div class="medium-10 large-10 columns">
 								<label>Nome:<br /> <h:inputText id="nome" name="nome"
-										value="#{cadusuario.usuario.nome}"
+										value="#{cfuncionario.funcionario.nome}"
 										placeholder="Informe o nome" />
 								</label>
 										<h:message class="error" for="nome" />
 							
 							</div>
 						</div>
-						
-						
-										
-						
+												
 						<div class="row">
-							
-							
+													
 						<div class="medium-6 large-6 columns">
 							<label>Sexo:</label>
-								<h:selectOneMenu id="sexo" name="sexo" value="#{cadusuario.usuario.sexo}">
+								<h:selectOneMenu id="sexo" name="sexo" value="#{cfuncionario.funcionario.sexo}">
 									<f:selectItem itemValue="" itemLabel="Informe o Sexo" noSelectionOption="true" />
 									<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
 									<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
@@ -85,14 +81,14 @@
 						<div class="row">
 							<div class="medium-7 large-7 columns">
 								<label>Endereço:<br /> <h:inputText name="endereco"
-										value="#{cadusuario.usuario.endereco}"
+										value="#{cfuncionario.funcionario.endereco}"
 										placeholder="Informe o endereço" />
 								</label>
 							</div>
 							
 							<div class="medium-4 large-4 columns">
 								<label>Bairro:<br /> <h:inputText name="bairro"
-										value="#{cadusuario.usuario.bairro}"
+										value="#{cfuncionario.funcionario.bairro}"
 										placeholder="Informe o Bairro" />
 								</label>
 							</div>
@@ -103,13 +99,13 @@
 							
 							<div class="medium-4 large-4 columns">
 								<label>Cep:<br /> <h:inputText name="cep"
-									value="#{cadusuario.usuario.cep}" placeholder="Informe o Cep" />
+									value="#{cfuncionario.funcionario.cep}" placeholder="Informe o Cep" />
 								</label>
 							</div>
 							
 							<div class="medium-4 large-4 columns">
 								<label>Telefone :<br /> <h:inputText id="telefone" name="telefone"
-										value="#{cadusuario.usuario.tel}" placeholder="Informe o Telefone" />
+										value="#{cfuncionario.funcionario.tel}" placeholder="Informe o Telefone" />
 								</label>
 										<h:message class="error" for="telefone" />
 							</div>
@@ -119,7 +115,7 @@
 						<div class="row">
 							<div class="medium-6 large-6 columns">
 							<label>Cargo:</label>
-								<h:selectOneMenu id="cargo" name="cargo" value="#{cadusuario.usuario.cargo}">
+								<h:selectOneMenu id="cargo" name="cargo" value="#{cfuncionario.funcionario.cargo}">
 									<f:selectItem itemValue="" itemLabel="Informe o Cargo !" noSelectionOption="true" />
 									<f:selectItem itemValue="Gerente" itemLabel="Gerente" />
 									<f:selectItem itemValue="Professor" itemLabel="Professor" />
@@ -129,7 +125,7 @@
 							
 							<div class="medium-4 large-4 columns">
 								<label>Data Nascimento:<br /> <h:inputText class="dataNascimento" id="dataNascimento" name="dataNascimento"
-										value="#{cadusuario.usuario.dataNascimento}"
+										value="#{cfuncionario.funcionario.dataNascimento}"
 										styleClass="calendario">
 										<f:convertDateTime pattern="dd/mm/yyyy" />
 									</h:inputText>
@@ -141,21 +137,21 @@
 						<div class="row">
 							<div class="medium-4 large-4 columns">
 								<label>Login :<br /> <h:inputText id="login" name="login"
-										value="#{cadusuario.usuario.login}" placeholder="Informe o Login" />
+										value="#{cfuncionario.funcionario.login}" placeholder="Informe o Login" />
 								</label>
 										<h:message class="error" for="login" />
 							</div>
 							
 							<div class="medium-4 large-4 columns">
 								<label>Senha :<br /> <h:inputText id="senha" name="senha" 
-										value="#{cadusuario.usuario.senha}" placeholder="Informe a Senha"/>
+										value="#{cfuncionario.funcionario.senha}" placeholder="Informe a Senha"/>
 								</label>
 										<h:message class="error" for="senha" />								
 							</div>
 							
 							<div class="medium-4 large-4 columns">
 								<label>Confirme a Senha :<br /> <h:inputText id="senha2" name="senha2"
-										value="#{cadusuario.usuario.senha2}" placeholder="Confirme a Senha" />
+										value="#{cfuncionario.funcionario.senha2}" placeholder="Confirme a Senha" />
 								</label>
 										<h:message class="error" for="senha2" />
 							</div>
@@ -166,10 +162,10 @@
 							<div class="medium-12 large-12 columns">
 								<h:outputText value="Usuario gravado com sucesso!" 
 									class="success"
-									rendered="#{cadusuario.gravado}" />
+									rendered="#{cfuncionario.gravado}" />
 								<br /><br />
 								<h:commandLink class="button medium success radius right"
-									value="Gravar" actionListener="#{cadusuario.gravar()}" />
+									value="Gravar" actionListener="#{cfuncionario.gravar()}" />
 							</div>
 						</div>
 						
